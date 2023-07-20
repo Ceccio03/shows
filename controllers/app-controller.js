@@ -17,6 +17,8 @@ class AppController {
         appContainer.innerHTML = `
         <header>
             <h1>Netflics</h1>
+            <a href="./index.html">lista</a>
+            <a href="./new-show.html">nuovo show</a>
         </header>
         <main>
             <div id="btn-container"></div>
