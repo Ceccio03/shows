@@ -44,7 +44,7 @@ class AppController {
             listElement.appendChild(upvoteSpan);
 
             const upButton = document.createElement('button');
-            upButton.appendChild(document.createTextNode('up'));
+            upButton.appendChild(document.createTextNode('👍'));
             upButton.addEventListener('click', () => this.upvoteShow(show));
             listElement.appendChild(upButton);
 
@@ -53,7 +53,7 @@ class AppController {
             listElement.appendChild(downvoteSpan);
 
             const downButton = document.createElement('button');
-            downButton.appendChild(document.createTextNode('down'));
+            downButton.appendChild(document.createTextNode('👎'));
             downButton.addEventListener('click', () => this.downvoteShow(show));
             listElement.appendChild(downButton);
 
