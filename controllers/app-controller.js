@@ -19,9 +19,8 @@ class AppController {
             <h1>Netflics</h1>
         </header>
         <main>
-            <ul id="shows-container">
-    
-            </ul>
+            <div id="btn-container"></div>
+            <ul id="shows-container"></ul>
         </main>
         <footer>
             <p>I diritti sono tutti miei!!!</p>
@@ -29,6 +28,19 @@ class AppController {
     }
 
     renderShows() {
+        const btnContainer = document.getElementById('btn-container');
+        btnContainer.innerHTML = '';
+
+        const sortUpBtn = document.createElement('button');
+        sortUpBtn.appendChild(document.createTextNode('ordina per upvotes'));
+        sortUpBtn.addEventListener('click', () => this.sortByUpVotes(show));
+        btnContainer.appendChild(sortUpBtn);
+
+        const sortDownBtn = document.createElement('button');
+        sortDownBtn.appendChild(document.createTextNode('ordina per downvotes'));
+        sortDownBtn.addEventListener('click', () => this.sortByDownVotes(show));
+        btnContainer.appendChild(sortDownBtn);
+
         const showsContainer = document.getElementById('shows-container');
         showsContainer.innerHTML = '';
 
@@ -71,5 +83,15 @@ class AppController {
         DBService.downvote(show).then(show => {
             this.renderShows();
         });
+    }
+
+    sortByUpVotes() {
+        this.shows.sort((s1, s2) => s2.upVotes - s1.upVotes);
+        this.renderShows();
+    }
+
+    sortByDownVotes() {
+        this.shows.sort((s1, s2) => s2.downVotes - s1.downVotes);
+        this.renderShows();
     }
 }
