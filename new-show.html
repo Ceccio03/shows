@@ -10,7 +10,7 @@
         <h2>Inserisci un nuovo show</h2>
     </header>
     <main>
-        <form action="https://64b7ae3421b9aa6eb078ca81.mockapi.io/shows" method="post">
+        <form id="create-form" name="create" onsubmit="sendData(event)">
             <div>
                 <label for="title">Inserisci il titolo</label>
                 <input type="text" name="title" id="title">
@@ -19,7 +19,17 @@
                 <label for="author">Inserisci l'autore</label>
                 <input type="text" name="author" id="author">
             </div>
+            <div>
+                <label for="imageUrl">Inserisci l'url dell'immagine</label>
+                <input type="text" name="imageUrl" id="imageUrl">
+            </div>
+            <div>
+                <label for="isOver">Spunta se la serie è conclusa</label>
+                <input type="checkbox" name="isOver" id="isOver">
+            </div>
+            <button type="submit">Invia</button>
         </form>
     </main>
 </body>
+<script src="./new-show.js"></script>
 </html>
