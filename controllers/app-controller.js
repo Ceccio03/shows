@@ -1,6 +1,7 @@
 class AppController {
     constructor(){
         this.shows = [];
+        this.isUpvoting = false;
     }
 
     init() {
@@ -76,15 +77,24 @@ class AppController {
     }
 
     upvoteShow(show) {
-        DBService.upvote(show).then(show => {
-            this.renderShows();
-        });
+        if (!this.isUpvoting) {
+            this.isUpvoting = true;
+
+            DBService.upvote(show).then(show => {
+                this.renderShows();
+                this.isUpvoting = false;
+            });
+        } 
     }
 
     downvoteShow(show) {
-        DBService.downvote(show).then(show => {
-            this.renderShows();
-        });
+        if (!this.isUpvoting) {
+            this.isUpvoting = true;
+            
+            DBService.downvote(show).then(show => {
+                this.renderShows();
+            });
+        }
     }
 
     sortByUpVotes() {
