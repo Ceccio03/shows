@@ -18,12 +18,12 @@ class DBService {
     static upvote(show) {
         show.upVotes++;
 
-        this.updateShow(show);
+        return this.updateShow(show);
     }
 
     static downvote(show) {
         show.downVotes++;
         
-        this.updateShow(show);
+        return this.updateShow(show);
     }
 }
