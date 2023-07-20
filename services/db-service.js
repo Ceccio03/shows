@@ -6,7 +6,7 @@ class DBService {
     }
 
     static updateShow(show) {
-        const updateUrl = 'https://64b7ae3421b9aa6eb078ca81.mockapi.io/shows' + show.id;
+        const updateUrl = 'https://64b7ae3421b9aa6eb078ca81.mockapi.io/shows/' + show.id;
 
         return fetch(updateUrl, {
             method: "put",

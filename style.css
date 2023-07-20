@@ -1,7 +1,7 @@
 button {
     border: none;
     background: transparent;
-    cursor: crosshair;
+    cursor: pointer;
 }
 
 span {
